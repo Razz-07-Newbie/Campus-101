@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Campus 101 - Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+    <header>
+    
+            <img src="Logo.jpg" width="100" height="100" alt="Logo">
+            <h1>Campus 101</h1>
+
+            <nav>
+                <a href="index.html">Home</a> |
+                <a href="about.html">About</a> |
+                <a href="discussion.html">Discussion</a> |
+                <a href="contact.html">Contact</a>
+            </nav>
+    </header>
+
+            <h2>Contact Us</h2>
+
+    <!-- Two-pane Flexbox layout: info on the left, map on the right -->
+            <div class="container">
+
+            <div class="info">
+                <h3>Our Location</h3>
+                <p>Visit us at Campus 101, Philadelphia, PA.</p>
+
+                <p>
+                    Email:
+                    <a href="mailto:info@campus101.com">info@campus101.com</a>
+                </p>
+
+                <p>
+                    Phone:
+                    <a href="tel:+12153338543">+1 (215) 333-8543</a>
+                </p>
+            </div>
+
+            <div class="map">
+                <iframe
+                src="https://www.google.com/maps?q=Philadelphia,PA&output=embed"
+                title="Map showing the Campus 101 location in Philadelphia, PA"
+                width="600"
+                height="350"
+                style="border:0;"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            </div>
+
+    
+            <h2>Student Resource Request Form</h2>
+
+            <p>
+                Create a Campus 101 account and tell us which campus
+                resources you need help finding.
+            </p>
+
+            <form action="#" method="post">
+
+    <!-- 1. Text input -->
+            <label for="studentName">Full Name:</label><br>
+            <input type="text" id="studentName" name="studentName"
+                placeholder="Enter your full name" required>
+            <br><br>
+
+    <!-- 2. Email input -->
+            <label for="studentEmail">College Email:</label><br>
+            <input type="email" id="studentEmail" name="studentEmail"
+                placeholder="you@example.com" required>
+            <br><br>
+
+    <!-- 3. Password input -->
+            <label for="studentPassword">Create a Password:</label><br>
+            <input type="password" id="studentPassword"
+                name="studentPassword" minlength="8"
+                placeholder="At least 8 characters" required>
+            <br><br>
+            <label for="studentPhone">Phone:</label><br>
+            <input type="tel" id="studentPhone" name="studentPhone"
+                pattern="[0-9]{10}" placeholder="10 digits only" required>
+            <br><br>
+
+    <!-- 4. Radio buttons -->
+            <p>Which best describes you?</p>
+
+            <input type="radio" id="freshman" name="studentType"
+                value="Freshman" required>
+            <label for="freshman">Freshman</label><br>
+
+            <input type="radio" id="transfer" name="studentType"
+                value="Transfer Student">
+            <label for="transfer">Transfer Student</label><br>
+
+            <input type="radio" id="otherStudent" name="studentType"
+                value="Other">
+            <label for="otherStudent">Other</label>
+            <br><br>
+
+    <!-- 5. Checkboxes -->
+            <p>Which resources are you interested in?</p>
+
+            <input type="checkbox" id="tutoring" name="resources"
+                value="Tutoring">
+            <label for="tutoring">Tutoring and Academic Support</label><br>
+
+            <input type="checkbox" id="technology" name="resources"
+                value="Technology Help">
+            <label for="technology">Technology Help</label><br>
+
+            <input type="checkbox" id="clubs" name="resources"
+                value="Clubs and Events">
+            <label for="clubs">Student Clubs and Events</label><br>
+
+            <input type="checkbox" id="dining" name="resources"
+                value="Dining">
+            <label for="dining">Dining Information</label>
+            <br><br>
+
+    <!-- 6. Dropdown menu -->
+            <label for="helpType">What information do you need most?</label><br>
+
+            <select id="helpType" name="helpType" required>
+                <option value="">-- Select a resource --</option>
+                <option value="Academic Support">Academic Support</option>
+                <option value="Campus Resources">Campus Resources</option>
+                <option value="Technology Help">Technology Help</option>
+                <option value="Clubs and Events">Clubs and Events</option>
+                <option value="Dining Information">Dining Information</option>
+            </select>
+            <br><br>
+
+    <!-- 7. Submit button -->
+            <button type="submit">Submit Request</button>
+
+            </form>
+    </main>
+    <footer>
+        <p>&copy; 2026 Campus 101.</p>
+    </footer>
+    <script>
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", function(event) {
+        const email = document.getElementById("studentEmail").value.trim();
+        const phone = document.getElementById("studentPhone").value.trim();
+    
+        if (!email.includes("@") || !email.includes(".")) {
+        alert("Please enter a valid email address (must contain '@' and a domain).");
+        event.preventDefault();
+        return;
+        }
+
+        if (phone.length !== 10 || isNaN(phone)) {
+        alert("Phone number must be exactly 10 digits and contain only numbers.");
+        event.preventDefault();
+        return;
+        }
+    // Optional success message
+        alert("Form submitted successfully!");
+    });
+    </script>
+
+</body>
+</html>
